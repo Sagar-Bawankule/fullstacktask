@@ -75,6 +75,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
 .new-note-btn {
@@ -88,6 +89,7 @@ body {
   cursor: pointer;
   transition: background var(--transition), transform var(--transition);
   font-family: 'Inter', sans-serif;
+  white-space: nowrap;
 }
 
 .new-note-btn:hover {
@@ -115,6 +117,7 @@ body {
   color: var(--text-primary);
   font-size: 14px;
   font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 .search-box input::placeholder {
@@ -253,6 +256,7 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 .title-input::placeholder {
@@ -300,6 +304,7 @@ body {
   cursor: pointer;
   transition: background var(--transition), transform var(--transition);
   font-family: 'Inter', sans-serif;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -318,6 +323,7 @@ body {
   cursor: pointer;
   transition: all var(--transition);
   font-family: 'Inter', sans-serif;
+  white-space: nowrap;
 }
 
 .btn-danger:hover {
@@ -369,4 +375,68 @@ body {
 @keyframes shimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+/* ─── Media Queries for Responsiveness ─────────────────────────────── */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .main {
+    width: 100%;
+    height: auto;
+    min-height: 60vh;
+  }
+  
+  .editor-header {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .editor-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .content-input {
+    padding: 16px 20px;
+    min-height: 300px;
+  }
+  
+  .editor-meta {
+    padding: 8px 20px;
+  }
+  
+  .sidebar-header {
+    padding: 16px 20px;
+  }
+  
+  .search-box {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .new-note-btn {
+    width: auto;
+  }
 }
